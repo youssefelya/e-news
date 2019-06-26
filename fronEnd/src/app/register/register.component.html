@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+ Register
+<span class="flex-spacer"></span>
+<button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+
+<form novalidate (ngSubmit)="onSubmit()">
+
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="email" type="email" [(ngModel)]="user.email" name="email">
+      </mat-form-field>
+
+
+
+      <mat-form-field>
+        <input matInput placeholder="Tel" type="text" [(ngModel)]="user.tel" name="tel">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password">
+      </mat-form-field>
+      <br>
+
+      <mat-checkbox [(ngModel)]="user.writer" name="writer">Are you writer</mat-checkbox>
+
+    
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+
+    <button type="submit" mat-button class="background-primary text-floral-white" 
+    (click)="getRegister()">Register</button>
+
+  </mat-dialog-actions>
+</form>

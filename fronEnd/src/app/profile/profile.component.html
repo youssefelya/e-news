@@ -1,0 +1,46 @@
+
+
+
+
+ <div class="btn-toolbar">
+<button type="submit"  mat-button class="background-primary text-floral-white" 
+(click)="editeProfile()"
+style="margin:5px;"
+>Editer Profile</button>
+
+<button *ngIf="loginservice.isAdmin()" type="submit"  mat-button class="background-primary text-floral-white" 
+(click)="addNews()" 
+style="margin:5px;"> Add News</button>
+</div>
+
+ 
+
+
+
+  <form novalidate  *ngIf="newsAdd()" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="Title" type="text" [(ngModel)]="newsForm.title" name="title">
+        </mat-form-field>
+      </p>
+      <mat-form-field>
+        <input matInput placeholder="Tel" type="text" [(ngModel)]="newsForm.telnum" name="Tel.Number">
+      </mat-form-field>
+      <p>
+       
+        <mat-form-field class="full-width">
+        <textarea matInput  placeholder="Text" type="text"  [(ngModel)]="newsForm.message" name="Text"
+                 rows=12></textarea>
+              </mat-form-field>
+      </p>
+      <p>Upload File</p>>
+      <input type="file" (change)="onFileSelected($event)" />
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <span class="flex-spacer"></span>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button type="submit"  mat-button class="background-primary text-floral-white" 
+      (click)="loginuser(user)" >Enregistrer </button>  
+    </mat-dialog-actions>
+  </form>
